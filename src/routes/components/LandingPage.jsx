@@ -5,7 +5,7 @@ function LandingPage({ update }) {
     const [urlInput,setUrlInput] = useState('');
     const handleSubmit = e => {
         e.preventDefault();
-        if(urlInputRef.current  && urlInput.trim() !== ""){
+        if(urlInputRef.current && urlInput.trim() !== ""){
             update(urlInput);
             setUrlInput(''); 
         } 
