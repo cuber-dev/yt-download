@@ -149,6 +149,7 @@ img{
   -ms-border-radius: 1rem;
   -o-border-radius: 1rem;
 }
+
 .results-container .tabs{
   display: flex;
   background-color: var(--secondry);
@@ -169,13 +170,60 @@ img{
 .results-container .tabs .tab i{ margin-right: .5rem;}
 
 .results-container .results-dumper{ 
-  display: none;
+  width: 100%;
+  position: relative;
+  display: flex;
   flex-direction: column-reverse;
   justify-content: center;
   background-color: var(--secondry);
   padding: 2rem;
 }
-.results-container .results-dumper.active{ display: flex; }
+.results-container .results-dumper .loader{
+  background-color: rgba(0,0,0,0.5);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 4rem;
+  animation: fade-in 1s ease;
+  -webkit-animation: fade-in 1s ease;
+}
+@keyframes fade-in {
+  from{
+    opacity: 0;
+  }
+}
+.results-container .results-dumper .loader .circle{
+  margin-top: 2rem;
+  height: 50px;
+  width: 50px;
+  border: 5px solid var(--accent);
+  border-right: 5px solid var(--primary);
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  animation: loading 1s infinite ease; 
+  -webkit-animation: loading 1s infinite ease-in-out; 
+}
+@keyframes loading {
+  0%{
+    transform: rotate(0deg) ;
+    -webkit-transform: rotate(0deg) ;
+    -moz-transform: rotate(0deg) ;
+    -ms-transform: rotate(0deg) ;
+    -o-transform: rotate(0deg) ;
+}
+  100%{
+    transform: rotate(360deg) ;
+    -webkit-transform: rotate(360deg) ;
+    -moz-transform: rotate(360deg) ;
+    -ms-transform: rotate(360deg) ;
+    -o-transform: rotate(360deg) ;
+}
+}
 .results-container .results-dumper .result-item{
   background-color: var(--primary);
   margin-bottom: 1rem;
@@ -187,9 +235,18 @@ img{
   -ms-border-radius: .8rem;
   -o-border-radius: .8rem;
 }
+
 .results-container .results-dumper .result-item .error{
   color: rgb(204, 72, 72);
   margin: 3rem auto;
+}
+.results-container .results-dumper .result-item.nothing{
+  padding: 4rem 1rem;
+  color: var(--text-clr-3);
+  line-height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .results-container .results-dumper .result-item .thumbnail{
   flex: .8;
@@ -207,7 +264,7 @@ img{
   position: absolute;
   bottom: .5rem;
   right: .5rem;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0,0,0,0.5);
   color: var(--text-clr);
   padding: .3rem;
   font-size: .8rem;

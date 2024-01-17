@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 function Nav() {
     const links = [
@@ -19,9 +20,9 @@ function Nav() {
         } 
     }
 
-    return ( <>
+    return ( <> 
         <nav className="nav">
-            <a className="logo" href="/"><h1>MAX <i className="fa-solid fa-bolt"></i> </h1></a>
+            <NavLink className="logo" to={"/"}><h1>MAX <i className="fa-solid fa-bolt"></i> </h1></NavLink>
             <div className={`links ${isNavActive && 'active'}`}> 
                 <ul>
                     {links.map((link, index) => (
