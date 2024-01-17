@@ -44,7 +44,7 @@ img{
   align-items: center;
   z-index: 999;
 }
-.nav .logo{  
+.logo{  
   font-family: 'Stalinist One', sans-serif;
   color: var(--accent);
   text-decoration: none; 
@@ -67,8 +67,8 @@ img{
 }
 .nav .nav-link:hover{
   text-decoration: underline;
+  color: var(--accent);
 }
-.nav .nav-link.active{ color: var(--accent);}
 
 
 
@@ -162,13 +162,11 @@ img{
   background-color: var(--secondry);
   border: none;
   color: var(--text-clr-2);
-}
-.results-container .tabs .tab i{ margin-right: .5rem;}
-.results-container .tabs .tab.active{
-  background-color: var(--accent);
+  pointer-events: none;
   color: var(--text-clr);
   font-weight: bold;
 }
+.results-container .tabs .tab i{ margin-right: .5rem;}
 
 .results-container .results-dumper{ 
   display: none;
@@ -223,10 +221,7 @@ img{
 .results-container .results-dumper .result-item .content .header{
   display: flex;
   justify-content: space-between;
-  margin-bottom: .5rem;
-}
-.results-container .results-dumper .result-item .content .header .time{
-  color: var(--text-clr-3);
+  margin-bottom: 1rem;
 }
 .results-container .results-dumper .result-item .content .download-container{
   display: flex;
@@ -291,6 +286,7 @@ img{
 
 
 .contact{
+  margin-top: 10rem;
   padding: 4rem;
   padding-bottom: 0;
   background-color: var(--secondry);
@@ -300,34 +296,30 @@ img{
   align-items: center;
   font-size: .9rem;
 }
+.contact .logo{
+  font-size: 3rem;
+}
 .contact .links{
   list-style: none;
   color: inherit;
   display: flex;
   align-items: center; 
-  justify-content: space-between;
+  justify-content: center;
   width: 70%; 
-}
-.contact .links .link{
-  text-decoration: none;
-  color: inherit;
+  margin-top: 1.5rem;
 }
 .contact .links .link:hover{
   text-decoration: underline;
   color: var(--accent);
 }
-.contact .links.label-links li:nth-child(3) .link{  
-  color: var(--accent);
-  font-family: 'Stalinist One', sans-serif;
-}
-.contact .links.icon-links{
-  justify-content: center;
-}
-.contact .links.icon-links .link{
+
+.contact .links .link{
   margin: 0 1rem;
   border: 1px solid var(--text-clr);
   padding: .5rem .6rem;
   border-radius: 50%;
+  text-decoration: none;
+  color: var(--text-clr);
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
@@ -338,7 +330,7 @@ img{
   -ms-transition: all 300ms ease;
   -o-transition: all 300ms ease;
 }
-.contact .links.icon-links .link:hover{
+.contact .links .link:hover{
   background-color: var(--accent);
   color: var(--text-clr);
   border-color: var(--accent);
@@ -352,7 +344,7 @@ img{
   -moz-border-radius: 50rem;
   -ms-border-radius: 50rem;
   -o-border-radius: 50rem;
-  margin: 3rem 0;
+  margin: 1.5rem 0;
 }
 .contact .copy-right{
   margin: 3rem 0;
@@ -486,16 +478,25 @@ img{
   }
   .results-container .results-dumper .result-item .content .download-container{
     flex-direction: column;
+    padding: 0;
+    border: none;
   }
+  .results-container .results-dumper .result-item .content .download-container .table{
+    padding: 0;
+    border-width: 2px;
+  }
+
   .results-container .results-dumper .result-item .content .download-container .table:first-child{
     border: none;
+    margin-bottom: 1rem;
   }
 
   .results-container .results-dumper .result-item .content .download-container .table .header{
     font-size: 1rem;
   }
   .results-container .results-dumper .result-item .content .download-container .table tr{
-    padding: 1rem;
+    padding: 1rem .7rem;
+    border-width: 2px;
   }
   .results-container .results-dumper .result-item .content .download-container .table tr td{
     font-size: .9rem;
@@ -511,7 +512,7 @@ img{
   .contact .divider{
     margin: 2rem 0;
   }
-  .contact .links.icon-links{
+  .contact .links{
     margin: 1rem 0;
   }
 }

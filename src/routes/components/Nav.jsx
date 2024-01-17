@@ -1,24 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
-import { NavLink } from "react-router-dom";
-
 
 function Nav() {
     const links = [
-        { 
-            name: "Home",
-            link: "/"
-        },
-        {
-            name : 'About',
-            link : '/about'
-        },
-        {
-            name : 'History',
-            link : '/history'
-        },
         {
             name : 'Author',
-            link : '/author'
+            link : 'https://github.com/cuber-dev'
+        },
+        {
+            name : 'Contact',
+            link : '#contact'
         }
     ]
     const [isNavActive,setIsNavActive] = useState(false);
@@ -36,7 +26,7 @@ function Nav() {
                 <ul>
                     {links.map((link, index) => (
                         <li key={index} >
-                            <NavLink to={link.link} className={'nav-link'} >{link.name}</NavLink>
+                            <a href={link.link} className={'nav-link'} >{link.name}</a>
                         </li>
                     ))}
                 </ul> 

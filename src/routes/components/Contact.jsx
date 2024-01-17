@@ -1,28 +1,6 @@
 
 
 function Contact() {
-    const labelLinks = [
-        {
-            label : 'Product',
-            link : '/'
-        },
-        {
-            label : 'Features',
-            link : '/features'
-        },
-        {
-            label : 'MAX',
-            link : '/'
-        },
-        {
-            label : 'About',
-            link : '/about'
-        },
-        {
-            label : 'Support',
-            link : 'https://t.me/ujtu1k3qkg4as1azzz6ckg0veq0twp'
-        },
-    ]
     const iconLinks = [
         {
             class : 'fa-brands fa-github',
@@ -43,12 +21,8 @@ function Contact() {
         }
     ]
     return ( <>
-        <section className="contact">
-            <ul className="label-links links">
-                {labelLinks.map((item,index) => (
-                    <li key={index} ><a href={item.link} className="link">{item.label}</a></li>
-                ))}
-            </ul>
+        <section className="contact" id="contact">
+            <a href={'/'} className="link logo">MAX</a>
             <div className="divider"></div>
             <ul className="icon-links links">
                 {iconLinks.map((item,index) => (

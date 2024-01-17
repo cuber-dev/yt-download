@@ -1,6 +1,5 @@
 import Download from "./Download";
 
-
 function Recents({ recents }) {
     return ( <>
          {recents.map((item,index) => (
@@ -14,7 +13,6 @@ function Recents({ recents }) {
                         <div className="content">
                             <div className="header">
                                 <p className="title"> {item.title} </p> 
-                                <p className="time"> {item.time} </p>
                             </div>
                             <div className="download-container">
                                 <Download links={item.videoLinks} item={
