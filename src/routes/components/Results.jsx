@@ -44,7 +44,7 @@ function Results() {
                 }
             ],
             "originalUrl": "https://youtu.be/obH0Po_RdWk?si=CDjepn1bY19Ap532",
-            time : 'Today'
+            time : new String( new Date().toLocaleString()).split(',')[1]
      }],
         history : []
     })
@@ -52,7 +52,7 @@ function Results() {
         // fetching from api 
     },[]) 
     return ( <>
-        <section className="results">
+        <section className="results-container" id="results-container">
             <div className="tabs">
                 <button className="recents-tab tab active">
                     <i className="fa-solid fa-bars"></i>
@@ -65,39 +65,57 @@ function Results() {
             </div>
             <div className="results-dumper active" id="recent-results-dumper">
                 {results.recents.map((item,index) => (
-                    <div key={index} className="result">
+                    <div key={index} className="result-item">
                         <div className="thumbnail" >
-                            <img src={item.thumbnail} alt="thumbnail" className="thumbnail-image" />
-                            <span className="duration"> {item.duration} </span>
+                            <a href={item.originalUrl} className="image-link" target="_blank">
+                                <img src={item.thumbnail} alt="thumbnail" className="thumbnail-image" />
+                                <span className="duration"> {item.duration} </span>
+                            </a>
                         </div>
                         <div className="content">
-                            <div className="title">
-                                <h3 className=""> {item.title} </h3> 
+                            <div className="header">
+                                <p className="title"> {item.title} </p> 
                                 <p className="time"> {item.time} </p>
                             </div>
                             <div className="download-container">
-                                <div className="column">
-                                    <h3>Video</h3>
-                                    {item.videoLinks.map((video,index) => (
-                                        <div className="row"  key={index} >
-                                            <p className="label"> {video.qualityLabel} </p>
-                                            <a href={video.link} className="download-link" > 
-                                                .mp4 <i className="fa-solid fa-download"></i> 
-                                            </a>
-                                        </div>
-                                    ))}
-                                </div>
-                                <div className="column">
-                                    <h3>Audio</h3>
-                                    {item.audioLinks.map((audio,index) => (
-                                        <div className="row"  key={index} >
-                                            <p className="label"> {audio.sizeLabel} </p>
-                                            <a href={audio.link} className="download-link" > 
-                                                .m4a <i className="fa-solid fa-download"></i> 
-                                            </a>
-                                        </div>
-                                    ))}
-                                </div>
+                                <table className="table">
+                                    <thead>
+                                        <tr className="header"><th>Video</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        {item.videoLinks.map((video,index) => (
+                                            <tr key={index} >
+                                                <td className="label">
+                                                    <i className="fa-brands fa-youtube"></i> {video.qualityLabel} 
+                                                </td>
+                                                <td>
+                                                    <a href={video.link} className="download-link" > 
+                                                        .mp4 <i className="fa-solid fa-download"></i> 
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                                <table className="table">
+                                    <thead>
+                                        <tr className="header"><th>Audio</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        {item.audioLinks.map((audio,index) => (
+                                            <tr key={index} >
+                                                <td className="label"> 
+                                                    <i className="fa-solid fa-headphones"></i> {audio.sizeLabel} 
+                                                </td>
+                                                <td>
+                                                    <a href={audio.link} className="download-link" > 
+                                                        .m4a <i className="fa-solid fa-download"></i> 
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
                             </div>
                             
                         </div>
