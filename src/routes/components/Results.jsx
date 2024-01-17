@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Recents from "./Recents";
 
  
 function Results() {
@@ -54,76 +55,13 @@ function Results() {
     return ( <>
         <section className="results-container" id="results-container">
             <div className="tabs">
-                <button className="recents-tab tab active">
+                <button className="recents-tab tab">
                     <i className="fa-solid fa-bars"></i>
                     Recents
                 </button>
-                <button className="history-tab tab">
-                    <i className="fa-solid fa-clock-rotate-left"></i>
-                    History
-                </button>
-            </div>
+            </div> 
             <div className="results-dumper active" id="recent-results-dumper">
-                {results.recents.map((item,index) => (
-                    <div key={index} className="result-item">
-                        <div className="thumbnail" >
-                            <a href={item.originalUrl} className="image-link" target="_blank">
-                                <img src={item.thumbnail} alt="thumbnail" className="thumbnail-image" />
-                                <span className="duration"> {item.duration} </span>
-                            </a>
-                        </div>
-                        <div className="content">
-                            <div className="header">
-                                <p className="title"> {item.title} </p> 
-                                <p className="time"> {item.time} </p>
-                            </div>
-                            <div className="download-container">
-                                <table className="table">
-                                    <thead>
-                                        <tr className="header"><th>Video</th></tr>
-                                    </thead>
-                                    <tbody>
-                                        {item.videoLinks.map((video,index) => (
-                                            <tr key={index} >
-                                                <td className="label">
-                                                    <i className="fa-brands fa-youtube"></i> {video.qualityLabel} 
-                                                </td>
-                                                <td>
-                                                    <a href={video.link} className="download-link" > 
-                                                        .mp4 <i className="fa-solid fa-download"></i> 
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
-                                <table className="table">
-                                    <thead>
-                                        <tr className="header"><th>Audio</th></tr>
-                                    </thead>
-                                    <tbody>
-                                        {item.audioLinks.map((audio,index) => (
-                                            <tr key={index} >
-                                                <td className="label"> 
-                                                    <i className="fa-solid fa-headphones"></i> {audio.sizeLabel} 
-                                                </td>
-                                                <td>
-                                                    <a href={audio.link} className="download-link" > 
-                                                        .m4a <i className="fa-solid fa-download"></i> 
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
-                            </div>
-                            
-                        </div>
-                    </div>
-                ))}
-            </div>
-            <div className="results-dumper" id="history-results-dumper">
-                
+               <Recents recents={results.recents} />
             </div>
         </section>
     </> );
