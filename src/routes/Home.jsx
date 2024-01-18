@@ -3,9 +3,10 @@ import LandingPage from "./components/LandingPage";
 import Results from "./components/Results";
 
 function Home() {
-    const baseUrl = 'http://localhost:3000';
+    const baseUrl = 'https://max-server.onrender.com';
     const [results,setResults] = useState([]);
     const [loader,setLoader] = useState(false);
+    const [mediaCount,setMediaCount] = useState(0);
     const update = async (url) => {
         setLoader(true);
         try{
@@ -14,6 +15,7 @@ function Home() {
             const data = await res.json();
             console.log(data);
             if(data) setResults(prev => [...prev,data]);
+            if(data.originalUrl) setMediaCount(mediaCount + 1);
             setTimeout(() => {
                 setLoader(false);
             }, 500);
@@ -36,7 +38,7 @@ function Home() {
 
     return ( <>
         <LandingPage update={update} />
-        <Results loader={loader} results={results} />
+        <Results mediaCount={mediaCount} loader={loader} results={results} />
     </>);
 }
 

@@ -1,12 +1,12 @@
 import Recents from "./Recents";
  
-function Results({ results,loader }) {
+function Results({ mediaCount, results,loader }) {
     return ( <>
         <section className="results-container" id="results-container">
             <div className="tabs">
                 <button className="recents-tab tab">
                     <i className="fa-solid fa-bars"></i>
-                    Recents 
+                    Recents {mediaCount !== 0 ? ` - ${mediaCount}` : null}
                 </button>
             </div> 
             <div className="results-dumper" id="recent-results-dumper">
