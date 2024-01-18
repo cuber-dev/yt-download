@@ -1,0 +1,17 @@
+{
+    "name": "Max-Tube",
+    "short_name": "Max-Tube",
+    "description": "A simple youtube video downloader!",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#454258", 
+    "theme_color": "#48D4A2",
+    "icons": [
+      {
+        "src": "/MAX.png",
+        "sizes": "500x500",
+        "type": "image/png"
+      }
+    ]
+}
+  
