@@ -339,7 +339,9 @@ img{
 .results-container .results-dumper .result-item .content .download-container .table .download-link i{
   margin-left: .5rem;
 }
-
+.results-container .results-dumper .result-item .content .download-container .table .download-link:hover{
+   opacity: 0.7;
+}
 
 
 
