@@ -15,7 +15,7 @@ function LandingPage({ update }) {
             <h1 className="title" >Download YouTube Videos With <span className="accent" >MAX</span></h1>
             <form className="url-form" onSubmit={handleSubmit} >
                 <input 
-                    type="text"  
+                    type="url"  
                     name="url" 
                     placeholder="Paste Youtube Video URL Here!" 
                     id="url" 

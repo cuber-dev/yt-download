@@ -13,7 +13,7 @@ function Recents({ recents, loader }) {
                     : 
                         item.error ? <p className="error"> 
                             <i className="fa fa-warning" aria-hidden="true"></i> {item.error} 
-                        </p>
+                        </p>  
                           : (<> 
                             <div className="thumbnail" >
                                 <a href={item.originalUrl} className="image-link" target="_blank">
@@ -26,20 +26,9 @@ function Recents({ recents, loader }) {
                                     <p className="title"> {item.title} </p> 
                                 </div>
                                 <div className="download-container">
-                                    <Download links={item.videoLinks} item={
-                                        {
-                                            label : 'Video',
-                                            ext : '.mp4'
-                                        } 
-                                    } />
-                                    <Download links={item.audioLinks} item={
-                                        {
-                                            label : 'Audio',
-                                            ext : '.m4a' 
-                                        } 
-                                    } />
+                                    <Download links={item.videoLinks} item={item.videoLinks[0]} />
+                                    <Download links={item.audioLinks} item={item.audioLinks[0]} />
                                 </div>
-                                
                             </div>  
                           
                         </>)

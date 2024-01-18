@@ -3,7 +3,7 @@ import LandingPage from "./components/LandingPage";
 import Results from "./components/Results";
 
 function Home() {
-    const baseUrl = 'https://a6864657-ac0b-4b3c-b208-31b1bf8eead8-00-3cry9l8we6yhg.pike.replit.dev';
+    const baseUrl = 'http://localhost:3000';
     const [results,setResults] = useState([]);
     const [loader,setLoader] = useState(false);
     const update = async (url) => {
@@ -19,10 +19,18 @@ function Home() {
             }, 500);
         }catch (e){ 
             console.log(e);
-            setResults( prev => [...prev,{error : e}]);
-            setTimeout(() => {
-                setLoader(false);
-            }, 500);
+            if(e instanceof TypeError && e.message === 'Failed to fetch') { 
+                setResults(prev => [...prev,{error : 'Server is down (500), please try again later!'}]);
+                setTimeout(() => {
+                    setLoader(false);
+                }, 500); 
+                return;
+            }else{ 
+                setResults(prev => [...prev,e]);
+                setTimeout(() => {
+                    setLoader(false);
+                }, 500);
+            }
         }
     }
 
