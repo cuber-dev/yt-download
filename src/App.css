@@ -444,7 +444,7 @@ img{
 /* mobile */
 @media screen and (max-width : 425px) {
   .nav{
-    padding: .5rem 1rem;
+    padding: .7rem 1rem;
   }
   .nav .links{
     display: none;
