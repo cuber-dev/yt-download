@@ -160,6 +160,7 @@ img{
 }
 .results-container .tabs .tab{
   padding: .8rem 2rem;
+  padding-left: 1.9rem;
   background-color: var(--secondry);
   border: none;
   color: var(--text-clr-2);
@@ -169,7 +170,7 @@ img{
 }
 .results-container .tabs .tab i{ margin-right: .5rem;}
 
-.results-container .results-dumper{ 
+.results-container .results-dumper{
   width: 100%;
   position: relative;
   display: flex;
@@ -177,6 +178,12 @@ img{
   justify-content: center;
   background-color: var(--secondry);
   padding: 2rem;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+  border-top-left-radius: 0;
 }
 .results-container .results-dumper .loader{
   background-color: rgba(0,0,0,0.5);
@@ -500,17 +507,9 @@ img{
     border: none;
     font-size: 1.6rem;
     color: var(--text-clr);
-    padding: .4rem;
-    padding-bottom: .1rem;
-    border-radius: .3rem;
-    -webkit-border-radius: .3rem;
-    -moz-border-radius: .3rem;
-    -ms-border-radius: .3rem;
-    -o-border-radius: .3rem;
 }
   .nav .toggle-nav:hover{ 
     opacity: 0.5;
-    background-color: var(--primary);
    }
 
   .landing-page{ 
